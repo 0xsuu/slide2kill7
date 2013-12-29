@@ -1,4 +1,5 @@
 
+//Global variables
 float velocityJudge;
 int appCount;
 
@@ -9,7 +10,6 @@ int appCount;
 
 - (void)_quitAppAtIndex:(unsigned int)arg1;
 - (void)forceDismissAnimated:(BOOL)arg1;
-- (UIScrollView *)pageForDisplayIdentifier:(id)arg1;
 
 @end
 
@@ -49,30 +49,9 @@ int appCount;
     %orig;
 }
 
-- (void)_quitAppAtIndex:(unsigned int)arg1
-{
-    //NSMutableArray *appList = MSHookIvar<NSMutableArray *>(self, "_appList");
-    /*UIScrollView *onePage = (UIScrollView *)[[self pageForDisplayIdentifier:[appList objectAtIndex:arg1]] superview];
-    [UIView animateWithDuration:0.9f animations:^(void)
-     {
-         //onePage.frame = CGRectMake(onePage.frame.origin.x, -1024.0f, onePage.frame.size.width, onePage.frame.size.height);
-         //onePage.alpha = 0.0f;
-     }
-    completion:^(BOOL Finish)
-     {*/
-        %orig;
-     //}];
-}
-
 %end
 
 %hook SBAppSliderScrollingViewController
-
-%new(v@:@@)
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"[Suu Touch] %@",touches);
-}
 
 - (void)scrollViewWillEndDragging:(UIView *)view withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint)offset
 {
@@ -86,7 +65,7 @@ int appCount;
          }];
     }
     
-	%orig;
+    %orig;
 }
 
 %end
