@@ -1,0 +1,9 @@
+Package: com.suu.slide2kill7
+Name: Slide2Kill 7
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Suu
+Author: Suu
+Section: Tweaks
